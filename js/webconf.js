@@ -138,4 +138,61 @@ window.onload = function () {
 
     renderSponsors.innerHTML = txtSponsors;
   };
+
+  //form listener
+  const contactForm = document.getElementById("contactForm");
+  contactForm.addEventListener("submit", async () => {
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const message = document.getElementById("message").value;
+    const response = await fetch(`${urlBase}/ontacts/emails`, {
+      headers: {
+        "Content-Type": "application/x-www-form-urlcoded",
+      },
+      method: "POST",
+      body: `email=${email}&name=${name}&subject=${message}`,
+    });
+    const result = await response.json();
+    if (result.value.success) {
+      swal("Message Sent", result.value.message, "success");
+    } else {
+      //Exibir modal com o erro
+    }
+  });
 };
+
+// ####### MAPA ########
+
+function myMap() {
+  //coordinates to the location
+  const rip = new google.maps.LatLng(65.67199018220157, -19.4462982184262);
+
+  //map properties
+  const mapRip = {
+    center: rip,
+    zoom: 12,
+    scrollwheel: false,
+    draggable: false,
+    mapTypeId: google.maps.MapTypeId.ROADMAP,
+  };
+
+  //map
+  const map = new google.maps.Map(document.getElementById("googleMap", mapRip));
+
+  //information window
+  const infoWindow = new google.maps.InfoWindow({
+    content: "Budget E3 will be held here",
+  });
+
+  //marker
+  const marker = new google.maps.Marker({
+    position: rip,
+    map: map,
+    title: "BudgetE3",
+  });
+
+  //listener
+  marker.addListener("click", function () {
+    infoWindow.open(map, marker);
+  });
+}

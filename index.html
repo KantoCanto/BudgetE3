@@ -54,6 +54,17 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.32/dist/sweetalert2.min.css"
+      integrity="sha256-VJuwjrIWHWsPSEvQV4DiPfnZi7axOaiWwKfXaJnR5tA="
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDEPkOTriBhvQ9BIIY8gMdzBp3QrReSk3M&callback=myMap"
+      async
+      defer
+    ></script>
     <script src="/js/webconf.js" defer></script>
   </head>
   <body id="page-top">
@@ -118,6 +129,9 @@
         </div>
       </div>
     </header>
+
+    <!-- ####### ABOUT ####### -->
+
     <section id="about">
       <!--Informação básica sobre o evento-->
       <div class="container">
@@ -147,6 +161,9 @@
         </div>
       </div>
     </section>
+
+    <!-- ####### SPEAKERS ####### -->
+
     <section id="speakers">
       <!--Informação sobre os speakers-->
       <div class="row" id="renderSpeakers">
@@ -223,28 +240,100 @@
         </div>
       </div>
     </section>
-    <section id="sponsors">
-      <!--Informação sobre os sponsors-->
-      <div class="row" id="renderSponsors">
-        <div class="col-md-3 col-sm-6">
-          <!-- Sponsor-->
-          <a href="URL SPONSOR WEBSITE">
-            <img class="img-fluid d-block mx-auto" src="URL LOGO" />
-          </a>
+
+    <!-- ####### SPONSORS ####### -->
+    <section id="sponsors" class="py-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h2 class="section-heading text-uppercase">Sponsors</h2>
+          </div>
         </div>
-        <div class="col-md-3 col-sm-6">
-          <!-- Sponsor-->
-        </div>
-        <div class="col-md-3 col-sm-6">
-          <!-- Sponsor-->
-        </div>
-        <div class="col-md-3 col-sm-6">
-          <!-- Sponsor-->
-        </div>
+        <div class="row" id="renderSponsors"></div>
       </div>
     </section>
+
+    <!-- ####### CONTACTOS ####### -->
+
     <section id="contacts">
-      <!--Formulário para contactos e mapa-->
+      <div class="container">
+        <!--Formulário para contactos e mapa-->
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h2 class="section-heading text-uppercase">Reach Out To Us!</h2>
+            <h3 class="section-subheading text-muted">
+              Leave us any questions/suggestions and we'll answer them as soon
+              as possible.
+            </h3>
+            <div class="row">
+              <div class="col-lg-12">
+                <form id="contactForm" name="sendMessage">
+                  <div class="row">
+                    <div class="col-md-6 mx-auto">
+                      <!--Name Field-->
+                      <div class="form-group">
+                        <input
+                          id="name"
+                          class="form-control my-2 mx-2"
+                          type="text"
+                          placeholder="Your Name"
+                          required
+                        />
+                      </div>
+                      <!--Email Field-->
+                      <div class="form-group">
+                        <input
+                          id="email"
+                          class="form-control my-2 mx-2"
+                          type="email"
+                          placeholder="Your Email"
+                          required
+                        />
+                      </div>
+                      <!--Phone Field-->
+                      <div class="form-group">
+                        <input
+                          id="phone"
+                          class="form-control my-2 mx-2"
+                          type="number"
+                          placeholder="Your Phone Number"
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-6 mx-auto">
+                      <!--Message Field-->
+                      <div class="form-group">
+                        <textarea
+                          id="email"
+                          class="form-control my-2 mx-2"
+                          placeholder="Your Message"
+                          required
+                        ></textarea>
+                      </div>
+                    </div>
+                    <div class="col-lg-12 text-center">
+                      <!--Send message button-->
+                      <button
+                        id="sendMessageButton"
+                        class="btn btn-dark btn-xl my-5 text-uppercase"
+                        type="submit"
+                      >
+                        Send Message
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br />
+      <br />
+      <div class="container-fluid" id="googleMap">
+        <div class="row"></div>
+      </div>
     </section>
     <footer>
       <!--Links para as redes sociais e copyright-->
@@ -259,11 +348,5 @@
       integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
       crossorigin="anonymous"
     ></script>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.32/dist/sweetalert2.min.css"
-      integrity="sha256-VJuwjrIWHWsPSEvQV4DiPfnZi7axOaiWwKfXaJnR5tA="
-      crossorigin="anonymous"
-    />
   </body>
 </html>
